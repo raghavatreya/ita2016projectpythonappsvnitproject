@@ -1,0 +1,61 @@
+{%extends "index.html"%}
+
+{%block body%}
+
+ 
+  {% for message in form.email.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.password.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+<!--   <form action="{{ url_for('login') }}" method=post>
+    {{ form.hidden_tag() }}
+     
+    {{ form.email.label }}
+    {{ form.email }}
+     
+    {{ form.password.label }}
+    {{ form.password }}
+     
+    {{ form.submit }}
+  </form> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+
+
+          <div class="form-box">
+            <div class="form-top">
+                                <div class="form-top-left">
+                                  <h2>Log in</h2>
+                                    <p>Enter username and password to log on:</p>
+                                </div>
+                                <div class="form-top-right">
+                                  <i class="fa fa-lock"></i>
+                                </div>
+              </div>
+            <div class="form-bottom">
+                <form action="{{ url_for('login') }}" method=post>
+                {{ form.hidden_tag() }}
+                 
+                {{ form.email.label }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ form.email }}<br><br>
+                 
+                {{ form.password.label }}&nbsp;
+                {{ form.password }}<br><br>
+                 
+                {{ form.submit }}
+              </form>
+            </div>
+        </div>
+
+        </div>
+        <div class="col-md-3"></div>
+      </div>  
+    </div>
+
+
+{%endblock%}

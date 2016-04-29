@@ -1,0 +1,54 @@
+{%extends "index.html"%}
+
+
+{%block body%}
+<!-- Page Content -->
+    <div class="container" ng-controller="DocumentController">
+         {%raw%}
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Search for documents</p>
+                <div class="list-group">
+                <form role="form">
+                  <div class="form-group">
+                    <input type="text" class="form-control" ng-model="search" placeholder="Search here..."/>
+                  </div>
+                </form>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+               
+                <div class="thumbnail-wrapper" dir-paginate="doc in docs.docs | filter:search | itemsPerPage:3">
+                    
+                <div class="thumbnail">                
+                    <div class="caption-full">
+                        <h4 class="pull-right"><a href="/uploads/{{doc.name}}" target="_new">View</a></h4>
+                        <h4><a href="#">Document Name</a> :- {{doc.name}}
+                        </h4>
+                        <p>Size: {{doc.size}}</p>
+                        <div class="ratings">
+                        <p class="pull-right">3 views</p>                        
+                    </div>  
+                        <p>Uploaded by:-
+                            <strong>Admin </strong></p>                     
+                    </div>                    
+                </div>
+                
+                </div>
+
+    <div>
+        <dir-pagination-controls template-url="/page">
+        </dir-pagination-controls>
+    </div>  
+
+            </div>
+
+        </div>
+        {%endraw%} 
+    </div>
+    <!-- /.container -->
+
+{%endblock%}

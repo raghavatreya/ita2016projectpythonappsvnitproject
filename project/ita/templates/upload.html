@@ -1,0 +1,51 @@
+{%extends "index.html"%}
+
+{%block body%}
+
+ 
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+
+
+          <div class="form-box">
+            <div class="form-top">
+                                <div class="form-top-left">
+                                  <h2>Upload</h2>
+                                    <p>Upload a document:</p>
+                                </div>
+                                <div class="form-top-right">
+                                  <i class="fa fa-lock"></i>
+                                </div>
+              </div>
+            <div class="form-bottom">
+              <!-- /update/6 -->
+              <!-- {{url_for('upload_file')}} -->
+               <form action="{{url_for('upload_file')}}" method=post enctype=multipart/form-data>
+                  <table>
+                  <tr><td>File*:</td><td><input type=file name=file></td></tr>
+                  <tr><td><p>Document Name*:</td><td><input type=text name=docname placeholder=docname></tr></td>
+                  <tr><td><p>Author*:</td><td><input type=text name=author placeholder=author></tr></td>
+                  <tr><td><p>Publisher*:</td><td><input type=text name=publisher placeholder=publisher></tr></td>
+                  <tr><td><p>Tags*:</td><td><input type=text name=tags placeholder=tags></tr></td>
+                  <!-- <p><input type= name=docname> -->
+                </table>
+
+                     <input type=submit value=Upload>
+
+                </form>
+            </div>
+        </div>
+
+        </div>
+        <div class="col-md-3">
+              
+
+        </div>
+      </div>  
+    </div>
+
+
+{%endblock%}

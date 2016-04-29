@@ -1,0 +1,81 @@
+{%extends "index.html"%}
+
+{%block body%}
+
+{% for message in form.firstname.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.lastname.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.email.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.password.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+ <!--  <form action="{{ url_for('signup') }}" method=post>
+    {{ form.hidden_tag() }}
+     
+    {{ form.firstname.label }}
+    {{ form.firstname }}
+     
+    {{ form.lastname.label }}
+    {{ form.lastname }}
+     
+    {{ form.email.label }}
+    {{ form.email }}
+     
+    {{ form.password.label }}
+    {{ form.password }}
+     
+    {{ form.submit }}
+  </form> -->
+
+<div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+
+
+          <div class="form-box">
+            <div class="form-top">
+                                <div class="form-top-left">
+                                  <h2>Sign Up Now</h2>
+                                    <p>Fill in the form below to get instant access:</p>
+                                </div>
+                                <div class="form-top-right">
+                                  <i class="fa fa-lock"></i>
+                                </div>
+              </div>
+            <div class="form-bottom">
+                 <form action="{{ url_for('signup') }}" method=post>
+                  {{ form.hidden_tag() }}
+                   
+                  {{ form.firstname.label }}
+                  {{ form.firstname }}<br><br>
+                   
+                  {{ form.lastname.label }}&nbsp;
+                  {{ form.lastname }}<br><br>
+                   
+                  {{ form.email.label }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {{ form.email }}<br><br>
+                   
+                  {{ form.password.label }}&nbsp;
+                  {{ form.password }}<br><br>
+                   
+                  {{ form.submit }}
+                </form>
+            </div>
+        </div>
+
+        </div>
+        <div class="col-md-3"></div>
+      </div>  
+    </div>
+
+{%endblock%}
